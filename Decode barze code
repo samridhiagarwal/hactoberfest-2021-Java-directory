@@ -1,0 +1,63 @@
+// (.)=0 , (-.) = 1 , (--) = 2 all inputs should be legit ternary code
+
+import java.util.Scanner;
+import java.lang.String;
+
+public class Berland {
+    public static String arr;
+    static Scanner source = new Scanner(System.in);
+
+    public static String converter(String s) {
+
+        StringBuilder str = new StringBuilder();
+
+        int i = 1;
+
+        if (arr.charAt(0) == '.') {
+            str.append('0') ;
+        }
+        if (arr.charAt(0) == '-' && arr.charAt(1) == '.') {
+            str.append('1');
+            i++;
+        }
+        if (arr.charAt(0) == '-' && arr.charAt(1) == '-') {
+            str.append('2');
+            i++;
+        }
+        while (i < arr.length() ) {
+
+            if (arr.charAt(i) == '-' && arr.charAt(i+1) == '.') {
+                str.append('1');
+                i++;
+                i++;
+                continue;
+            }
+
+            if (arr.charAt(i) == '-' && arr.charAt(i+1) == '-') {
+                str.append('2');
+                i++;
+                i++;
+                continue;
+            } 
+            if(arr.charAt(i)=='.'){
+                str.append('0');
+            }
+            i++;
+
+        }
+        System.out.println(str.toString());
+return null;
+
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println("Enter the code");
+        arr = source.nextLine();
+
+      
+          converter(arr);
+
+
+    }
+}
